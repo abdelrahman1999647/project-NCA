@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="heading" style="margin-left:750px ; color: #FF6F61; margin-top: 30px;">تواصل <span>معنا </span> </h1>
+                    <div class="col-lg-4" style="margin-left: 550px; margin-top: 70px;">
+                        <div class="contact-form">
+                            <form action="/contact" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="email" name="email" style="text-align: end;"  class="form-control" placeholder="البريد الالكتروني" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="name"  style="text-align: end;" class="form-control" placeholder="الاسم" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" name="number"  style="text-align: end;"  class="form-control" placeholder="رقم الهاتف" required/>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="message"  style="text-align: end;"  rows="5" placeholder="الرسالة" required></textarea>
+                                </div>
+                                <div style="margin-left: 470px;"><button class="btn" type="submit">ارسل</button></div>
+                                {% for msg in messages %}
+                                <p style="text-align: end; color: #FF6F61; font-weight: bolder;">{{ msg }}</p>
+                                {% endfor %}                        
+                            </form>
+                        </div>
+                    </div>
+{% endblock %}

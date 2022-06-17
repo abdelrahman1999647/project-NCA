@@ -1,0 +1,15 @@
+<div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical" style="text-align:end ; font-weight: bolder;">
+	{% if user.is_superuser %}
+	<a class="nav-link {% if request.path == '/my-dashboard' %}active {% endif %}" href="{% url 'my_dashboard' %}" role="tab"> لوحة التحكم <i class="fa fa-tachometer-alt"></i></a>
+	{% endif %}
+	<a class="nav-link {% if request.path == '/my-orders' %}active {% endif %}"  href="{% url 'my_orders' %}" role="tab"> الاوردرات <i class="fa fa-shopping-bag"></i></a>
+	<a class="nav-link {% if request.path == '/edit-profile' %}active {% endif %}"  href="{% url 'edit-profile' %}" role="tab"> تعديل البيانات <i class="fa fa-user"></i></a>
+	<a class="nav-link {% if request.path == '/my-reviews' %}active {% endif %}"  href="{% url 'my-reviews' %}" role="tab"> التقييم <i class="fa fa-star"></i></a>
+
+	<a class="nav-link" href="{% url 'logout' %}"> تسجيل الخروج <i class="fa fa-sign-out-alt"></i></a>
+</div>
+
+
+
+
+
